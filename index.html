@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Wisher</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Balloon Container -->
+        <div id="balloon-container"></div>
+        
+        <!-- Form Slide -->
+        <div class="slide active" id="formSlide">
+            <h1>Birthday Wisher</h1>
+            <form id="birthdayForm">
+                <div class="input-group">
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+                <div class="input-group">
+                    <input type="date" id="birthdate" required>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <!-- Happy Birthday Slide -->
+        <div class="slide" id="happySlide">
+            <h1>🎉 Happy Birthday, <span id="displayName"></span>! 🎂</h1>
+            <div class="confetti"></div>
+            <button onclick="showNextSlide()">Next</button>
+        </div>
+
+        <!-- Sorry Slide -->
+        <div class="slide" id="sorrySlide">
+            <h1>😢 Sorry for the late wish!</h1>
+            <p>We apologize for not remembering your special day earlier.</p>
+            <button onclick="showFormSlide()">Back to Home</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

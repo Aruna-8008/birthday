@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  overflow: hidden;
+}
+
+.container {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.slide {
+  display: none;
+}
+
+.slide.active {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+  color: #ff6b6b;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.input-group {
+  margin: 1.5rem 0;
+}
+
+input {
+  width: 100%;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+input:focus {
+  border-color: #ff6b6b;
+  outline: none;
+  box-shadow: 0 0 10px rgba(255,107,107,0.3);
+}
+
+button {
+  background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(255,107,107,0.3);
+  transition: all 0.3s;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255,107,107,0.4);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+#sorrySlide {
+  color: #666;
+}
+
+/* Balloon Styles */
+.balloon {
+  position: absolute;
+  width: 40px;
+  height: 50px;
+  border-radius: 50%;
+  background: #ff6b6b;
+  animation: float 6s ease-in-out infinite;
+  z-index: -1;
+}
+
+.balloon:before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 100px;
+  background: #ccc;
+  bottom: -100px;
+  left: 50%;
+}
+
+.balloon.popped {
+  animation: pop 0.5s ease-out forwards;
+}
+
+/* Confetti Styles */
+.confetti {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes pop {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .container {
+      padding: 1.5rem;
+  }
+  
+  h1 {
+      font-size: 1.5rem;
+  }
+  
+  button {
+      padding: 0.8rem 1.5rem;
+  }
+}
